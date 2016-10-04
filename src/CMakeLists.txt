@@ -292,6 +292,8 @@ endif()
 # tests
 #########################################################################
 add_subdirectory(tests)
+add_executable(testUSBBandwidth utilityTools/testUSBBandwidth.cpp)
+target_link_libraries(testUSBBandwidth LimeSuite)
 
 #########################################################################
 # examples
