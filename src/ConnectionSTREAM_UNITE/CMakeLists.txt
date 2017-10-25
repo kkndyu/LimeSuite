@@ -42,4 +42,5 @@ endif()
 ########################################################################
 #target_include_directories(LimeSuite PUBLIC ${USB_INCLUDE_DIRS})
 target_sources(LimeSuite PRIVATE ${CONNECTION_STREAM_UNITE_SOURCES})
+target_sources(LimeSuite_static PRIVATE ${CONNECTION_STREAM_UNITE_SOURCES})
 #target_link_libraries(LimeSuite ${CONNECTION_STREAM_UNITE_LIBRARIES})

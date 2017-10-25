@@ -24,4 +24,5 @@ endif()
 ## Add to library
 ########################################################################
 target_sources(LimeSuite PRIVATE ${CONNECTION_XILLYBUS_SOURCES})
+target_sources(LimeSuite_static PRIVATE ${CONNECTION_XILLYBUS_SOURCES})
 

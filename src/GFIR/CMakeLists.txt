@@ -11,3 +11,4 @@ set(lms_gfir_src_files
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 target_sources(LimeSuite PRIVATE ${lms_gfir_src_files})
+target_sources(LimeSuite_static PRIVATE ${lms_gfir_src_files})

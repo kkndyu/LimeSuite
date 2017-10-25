@@ -112,12 +112,15 @@ cmake_dependent_option(ENABLE_LIBRARY "Enable build library" ON "SQLITE3_FOUND" 
 add_feature_info(LimeSuiteLibrary ENABLE_LIBRARY "The lime suite library")
 if (ENABLE_LIBRARY)
     add_library(LimeSuite ${LIME_SUITE_SOURCES})
+    add_library(LimeSuite_static STATIC ${LIME_SUITE_SOURCES})
     target_link_libraries(LimeSuite ${LIME_SUITE_LIBRARIES})
     set_property(TARGET LimeSuite PROPERTY POSITION_INDEPENDENT_CODE TRUE)
     set_target_properties(LimeSuite PROPERTIES SOVERSION ${LIME_SUITE_SOVER})
     set_target_properties(LimeSuite PROPERTIES VERSION ${LIME_SUITE_LIBVER})
     set_target_properties(LimeSuite PROPERTIES DEFINE_SYMBOL "LIME_DLL_EXPORTS")
     target_include_directories(LimeSuite PUBLIC ${LIME_SUITE_INCLUDES})
+    set_target_properties(LimeSuite_static PROPERTIES OUTPUT_NAME limesuite)
+    target_include_directories(LimeSuite_static PUBLIC ${LIME_SUITE_INCLUDES})
     if(BUILD_SHARED_LIBS)
         target_compile_definitions(LimeSuite PUBLIC "LIME_DLL")
     endif()
@@ -152,6 +155,7 @@ configure_file(
 )
 
 target_sources(LimeSuite PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/BuiltinConnections.cpp)
+target_sources(LimeSuite_static PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/BuiltinConnections.cpp)
 
 ########################################################################
 ## wx widgets dependency

@@ -24,3 +24,4 @@ endif()
 ## Add to library
 ########################################################################
 target_sources(LimeSuite PRIVATE ${CONNECTION_EVB7_COM_SOURCES})
+target_sources(LimeSuite_static PRIVATE ${CONNECTION_EVB7_COM_SOURCES})
